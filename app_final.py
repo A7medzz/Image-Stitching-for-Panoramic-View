@@ -63,7 +63,7 @@ def feather_blend(base, warped, feather_iters=2):
         return out
 
     warped_mask_255 = (warped_mask * 255).astype(np.uint8)
-    kernel = np.ones((3, 3), np.uint8)
+    kernel = np.ones((5, 5), np.uint8)
     for _ in range(max(1, feather_iters)):
         warped_mask_255 = cv2.erode(warped_mask_255, kernel, iterations=1)
 
